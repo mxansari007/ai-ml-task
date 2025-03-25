@@ -165,14 +165,3 @@ final_df.write.mode("overwrite").parquet(parquet_path)
 
 print(f"✅ Data successfully written to Delta format at {delta_path} and Parquet at {parquet_path}")
 print("✅ Distinct signal_ts count per day calculated and averages per hour computed.")
-
-avg_delta_path = "data/delta_output/avg_signals_per_hour_delta"
-avg_parquet_path = "data/avg_signals_per_hour.parquet"
-
-# Write avg_signals_per_hour to Delta
-avg_signals_per_hour.write.format("delta").option("overwriteSchema", "true").mode("overwrite").save(avg_delta_path)
-
-# Write avg_signals_per_hour to Parquet
-avg_signals_per_hour.write.mode("overwrite").parquet(avg_parquet_path)
-
-print(f"✅ avg_signals_per_hour successfully written to Delta format at {avg_delta_path} and Parquet at {avg_parquet_path}")
